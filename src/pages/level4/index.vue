@@ -1,7 +1,8 @@
 <template>
   <div class="main">
     <div class="mini-main">
-        <div></div>
+        <div>A. 愿意</div>
+        <div>B. 不愿意</div>
     </div>
   </div>
 </template>
@@ -56,7 +57,7 @@ page {
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: -1
+  z-index: -1;
 }
 
 .main .mini-main {

@@ -31,6 +31,7 @@ page{
     z-index: -3;
     -webkit-filter:blur(2px);
     filter: blur(2px);
+    transition: all 3s;
 }
 
 .poster {
@@ -56,7 +57,7 @@ page{
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: disappear 2s
+  animation: disappear 2s;
 }
 
 .dialog .message {
@@ -67,7 +68,7 @@ page{
 
 .choose-title {
   font-size: 55rpx;
-  color:orange;
+  color:blueviolet;
   font-family: LiSu;
   margin: 20rpx 0;
   margin-top: 200rpx;
@@ -77,7 +78,7 @@ page{
 
 .choose-type {
   font-size: 40rpx;
-  color:orangered;
+  color:hotpink;
   font-family: LiSu;
   margin: 20rpx 0;
   text-align: center;
