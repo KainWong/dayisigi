@@ -2,9 +2,12 @@
   <div class="main">
     <div class="mini-main">
         <div class="choose-title">{{question}}</div>
-        <div class="choose-type" v-for="(item,index) in chooseList" :key="index" @click="nextLevel">{{item}}</div>
+        <div class="choose-type" v-for="(item,index) in chooseList" :key="index" @click="nextLevel(index)">{{item}}</div>
     </div>
-    <div class="message">{{warnMessage}}</div>
+    <img class="poster" src="http://image109.360doc.com/DownloadImg/2018/08/1318/141247485_15_20180813064528444.gif" alt="">
+    <div class="dialog" v-if="showWarn">
+      <div class="message">{{warnMessage}}</div>
+    </div>
   </div>
 </template>
 
@@ -18,7 +21,9 @@ export default {
             'A. 赶忙跑上前去，询问情况',
             'B. 抑制住内心的喜悦，违心的发出怜悯“Oh,poor guy”',
             'C. 当场失控，笑得前仰后翻'
-        ]
+        ],
+        showWarn: false,
+        warnMessage: ''
     }
   },
 
@@ -29,6 +34,31 @@ export default {
   create() {
   },
   methods: {
+    showWarnDialog(text) {
+      this.warnMessage = text;
+      this.showWarn = true;
+      setTimeout(()=> {
+        this.showWarn = false
+      },1500)
+    },
+    nextLevel(index) {
+      if(index == 0) {
+        this.showWarnDialog('你并没有那么善良！');
+        return; 
+      }
+      if(index == 2) {
+        this.showWarnDialog('虽然这符合你的心理，但你还没那么敢');
+        return; 
+      }
+      if(index == 1) {
+        this.showWarnDialog('原来你真的是这种人');
+        const url = '../level4/main'
+        setTimeout(()=> {
+          wx.navigateTo({ url })
+        },2000)
+      }
+      
+    }
   },
   mounted() {
   }
@@ -46,7 +76,7 @@ page{
 }
 
 .main:before {
-    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571563837508&di=1828c37922e0d25f6badcbf07b46b27a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201510%2F05%2F20151005053743_hcFTr.thumb.700_0.jpeg');
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571765156775&di=1476245fec73dc0d8fb0bdb196eb89c1&imgtype=0&src=http%3A%2F%2Fimg.nga.cn%2Fattachments%2Fmon_201612%2F05%2F-9lddQhfo-fkbkXhZ4rT3cSvm-1jk.jpg.thumb.jpg');
     background-size: 100% 100%;
     width: 100%;   
     height: 100%;          
@@ -93,7 +123,7 @@ page{
 
 .choose-title {
   font-size: 55rpx;
-  color:orange;
+  color:blanchedalmond;
   font-family: LiSu;
   margin: 20rpx 0;
   margin-top: 200rpx;
@@ -103,10 +133,10 @@ page{
 
 .choose-type {
   font-size: 40rpx;
-  color:orangered;
+  color:lawngreen;
   font-family: LiSu;
   margin: 20rpx 0;
-  text-align: center;
+  text-align: left;
 }
 
 @keyframes disappear {

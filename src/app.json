@@ -1,12 +1,11 @@
 {
   "pages": [
-    "pages/level2/main",
     "pages/index/main",
-    "pages/logs/main",
-    "pages/counter/main",
-    "pages/level3/main",
     "pages/level4/main",
-    "pages/final/main"
+    "pages/level3/main",
+    
+    "pages/level2/main",
+    "pages/logs/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

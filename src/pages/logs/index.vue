@@ -22,6 +22,7 @@
         <div>❣&nbsp; ❣ &nbsp;❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣&nbsp; ❣</div>
       </div>
     </div>
+    <img class="poster" src="http://image109.360doc.com/DownloadImg/2018/08/1318/141247485_14_20180813064528178.gif" alt="">
   </div>
 </template>
 
@@ -144,6 +145,13 @@ export default {
   color:forestgreen;
   font-family: LiSu;
   margin: 20rpx 0;
+}
+
+.poster {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 page{
   height: 100% !important;

@@ -7,6 +7,7 @@
         <div class="message">{{warnMessage}}</div>
         </div>
     </div>
+    <img class="poster" src="http://image109.360doc.com/DownloadImg/2018/08/1318/141247485_10_20180813064526928.gif" alt="">
 </div>
 </template>
 <style lang="wxss">
@@ -81,7 +82,7 @@ page{
   color:hotpink;
   font-family: LiSu;
   margin: 20rpx 0;
-  text-align: center;
+  text-align: left;
 }
 
 @keyframes disappear {
@@ -106,10 +107,12 @@ page{
             return {
                 question: '看到一个小孩在旁边嚎啕大哭并惊声尖叫，你会什么反应？',
                 chooseList: [
-                    'A. 给他一拳',
+                    'A. 给他一拳，以表达不满情绪',
                     'B. 一拳解决不了问题的话，再补上几拳',
                     'C. 这小孩太吵了，给多少拳都难以抚平我的烦躁'
-                ]
+                ],
+                showWarn: false,
+                warnMessage: ''
             }
         },
         computed: {
