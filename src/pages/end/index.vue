@@ -1,11 +1,9 @@
 <template>
   <div class="main">
     <div class="mini-main">
-      <div class="choose-title">{{summary}}</div>
-      <div class="choose-type" @click="nextLevel('你就像那黑暗的石矶娘娘')">A. 是的</div>
-      <div class="choose-type" @click="nextLevel('那你就是更关注妲己喽')">B. 不是</div>
+        <div @click="linkTo('../pic/main')">{{album}}</div>
+        <div @click="linkTo('../logs/main')">{{words}}</div>
     </div>
-    <img class="poster" src="" alt="">
   </div>
 </template>
 
@@ -14,9 +12,8 @@ export default {
   name: '',
   data () {
     return {
-      summary: '小时候看哪吒传奇动画片你是不是更注意石矶娘娘这种反派角色？',
-      showWarn: false,
-      warnMessage: ''
+        album: '相册簿',
+        words: '悄悄话'
     }
   },
 
@@ -27,23 +24,14 @@ export default {
   create() {
   },
   methods: {
-    showWarnDialog(text) {
-        this.warnMessage = text;
-        this.showWarn = true;
-        setTimeout(()=> {
-            this.showWarn = false
-        },1500)
-    },
-    nextLevel(text) {
-        this.showWarnDialog(text);
-        const url = '../level3/main';
-        setTimeout(()=> {
-            wx.navigateTo({ url })
-        },2000)
-    }
+   linkTo(item) {
+      const url = item;
+      setTimeout(()=> {
+        wx.navigateTo({ url })
+      },2000)
+   }
   },
   mounted() {
-    
   }
 }
 </script>
@@ -95,31 +83,13 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: disappear 2s;
+  animation: disappear 2s
 }
 
 .dialog .message {
   padding:15rpx 20rpx;
   color: white;
   background: rgba(0,0,0,0.5);
-}
-
-.choose-title {
-  font-size: 40rpx;
-  color:maroon;
-  font-family: LiSu;
-  margin: 20rpx 0;
-  margin-top: 100rpx;
-  margin-bottom: 40rpx;
-  text-align: left;
-}
-
-.choose-type {
-  font-size: 40rpx;
-  color:red;
-  font-family: LiSu;
-  margin: 20rpx 0;
-  text-align: center;
 }
 
 @keyframes disappear {

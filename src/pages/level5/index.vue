@@ -2,10 +2,10 @@
   <div class="main">
     <div class="mini-main">
       <div class="choose-title">{{summary}}</div>
-      <div class="choose-type" @click="nextLevel('你就像那黑暗的石矶娘娘')">A. 是的</div>
-      <div class="choose-type" @click="nextLevel('那你就是更关注妲己喽')">B. 不是</div>
+      <div class="choose-type">A. 愿 意</div>
+      <div class="choose-type">B. 不愿意</div>
     </div>
-    <img class="poster" src="" alt="">
+    <img class="poster" src="http://image109.360doc.com/DownloadImg/2018/08/1318/141247485_2_20180813064524787.gif" alt="">
   </div>
 </template>
 
@@ -14,9 +14,7 @@ export default {
   name: '',
   data () {
     return {
-      summary: '小时候看哪吒传奇动画片你是不是更注意石矶娘娘这种反派角色？',
-      showWarn: false,
-      warnMessage: ''
+      summary: '对不起啦宝贝，前面把你当成一个坏人是开玩笑的啦，感觉思维受限，我不知道要做些什么东西才好。我也不会编手链啥的，想想只能通过我在行的方式表达我的心意，虽然我也不知道你有没有感觉到开心（呜呜呜~）。而且我也不是设计，这个小程序我已经努力让它往好看的地方做了，就算你觉得丑也不要吐槽。以后我也会尝试学一些其他新的东西去取悦你，让你多点体验。如果你有一点感动的话，那我这两天花的时间也算没有白费，希望有吧。最后小马，我想问你，在以后人生中，你愿意和我一起体验各种不同的经历嘛？'
     }
   },
 
@@ -27,23 +25,8 @@ export default {
   create() {
   },
   methods: {
-    showWarnDialog(text) {
-        this.warnMessage = text;
-        this.showWarn = true;
-        setTimeout(()=> {
-            this.showWarn = false
-        },1500)
-    },
-    nextLevel(text) {
-        this.showWarnDialog(text);
-        const url = '../level3/main';
-        setTimeout(()=> {
-            wx.navigateTo({ url })
-        },2000)
-    }
   },
   mounted() {
-    
   }
 }
 </script>
@@ -95,7 +78,7 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: disappear 2s;
+  animation: disappear 2s
 }
 
 .dialog .message {
